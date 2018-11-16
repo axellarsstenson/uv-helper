@@ -1,3 +1,6 @@
+// Copyright 2018 Axel Stenson. All rights reserved.
+// Use of this source code is governed by a MIT-style license that can be
+// found in the LICENSE file.
 
 var ERROR = "error";
 var locationCords = {};
@@ -17,10 +20,13 @@ function checkUV() {
         // Parse text for use
         var uvdata = JSON.parse(xhr.responseText);
         if (uvdata.value){
+          if (uvdata.value > 9.99) {
+            chrome.browserAction.setBadgeText({ text: (uvdata.value).toFixed(1) + "" });
+          }
           chrome.browserAction.setBadgeText({ text: uvdata.value + "" });
         }
       }
-      else{
+      else {
         chrome.browserAction.setBadgeText({ text: "???"});
       }
     };
