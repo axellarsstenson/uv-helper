@@ -1,6 +1,6 @@
 {
   "name": "UV Buddy",
-  "description": "A Chrome extension that monitors and displays the UV index in your current location.",
+  "description": "UV Buddy displays the UV index in your location.",
   "manifest_version": 2,
   "version": "1.0",
   "background": {
