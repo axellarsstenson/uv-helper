@@ -10,20 +10,40 @@ var user_lat = -1;
 var url = ""
 
 function checkUV() {
-  chrome.browserAction.setBadgeText({ text: "3"});
+  // Check if Lat and Long have been set by getLocation()
   if (user_lat != -1 && user_lng != -1) {
+
     var url = ("http://api.openweathermap.org/data/2.5/uvi?appid="+ appid + "&lat=" + user_lat + "&lon=" + user_lng + "");;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.onreadystatechange = function() {
+
       if (xhr.readyState == 4) {
         // Parse text for use
         var uvdata = JSON.parse(xhr.responseText);
         if (uvdata.value){
+          // Number formatting
           if (uvdata.value > 9.99) {
             chrome.browserAction.setBadgeText({ text: (uvdata.value).toFixed(1) + "" });
+          } else {
+            chrome.browserAction.setBadgeText({ text: uvdata.value + "" });
           }
-          chrome.browserAction.setBadgeText({ text: uvdata.value + "" });
+          // Colors for badge depending on value
+          if (uvdata.value < 3.0) {
+            chrome.browserAction.setBadgeBackgroundColor({color: '#33b841'});
+          }
+          else if (uvdata.value < 6.0) {
+            chrome.browserAction.setBadgeBackgroundColor({color: '#fec54b'});
+          }
+          else if (uvdata.value < 8.0) {
+            chrome.browserAction.setBadgeBackgroundColor({color: '#ff7243'});
+          }
+          else if (uvdata.value < 11.0) {
+            chrome.browserAction.setBadgeBackgroundColor({color: '#fd0122'});
+          }
+          else {
+            chrome.browserAction.setBadgeBackgroundColor({color: '#8773f6'});
+          }
         }
       }
       else {
@@ -64,8 +84,8 @@ function loc_error() {
   checkUV();
 } // end loc_error()
 
-// Set badge color and call getLocation() to get user location
-chrome.browserAction.setBadgeBackgroundColor({color: '#cc9933'});
+// Set badge color to grey and call getLocation() to get user location
+chrome.browserAction.setBadgeBackgroundColor({color: '#535860'});
 getLocation();
 
 // Check UV again every 20 minutes using
