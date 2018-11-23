@@ -1,7 +1,9 @@
 # UV Buddy
 A Chrome extension that displays current UV index.
 
-This extension is a work in progress. It currently works, but needs UI fixes, icons, and distribution on Chrome store.
+This extension is a work in progress. It currently works, but needs UI fixes, and icon changes.
+
+It works by using the UV Index API provided by [Open UV](https://www.openuv.io/).
 
 ## Installation
 

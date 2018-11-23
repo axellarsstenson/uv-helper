@@ -2,9 +2,12 @@
 // Use of this source code is governed by a MIT-style license that can be
 // found in the LICENSE file.
 
+// This is an alternate version of the UV Index API that provides more
+// accurate measurements but is limited to 500 req per day.
+
 var ERROR = "error";
 var locationCords = {};
-var appid = '7fdf47ba05bd492e4f1beb84ef9f23de';
+var appid = 'f487c19c4186c690795162423ba28f10';
 var user_lng = -1;
 var user_lat = -1;
 var url = ""
@@ -13,7 +16,7 @@ function checkUV() {
   // Check if Lat and Long have been set by getLocation()
   if (user_lat != -1 && user_lng != -1) {
 
-    var url = ("http://api.openweathermap.org/data/2.5/uvi?appid="+appid + "&lat=" + user_lat + "&lon=" + user_lng + "");;
+    var url = ('https://api.openuv.io/api/v1/uv?lat=' + user_lat + '&lng=' + user_lng);;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.onreadystatechange = function() {
@@ -21,24 +24,24 @@ function checkUV() {
       if (xhr.readyState == 4) {
         // Parse text for use
         var uvdata = JSON.parse(xhr.responseText);
-        if (uvdata.value){
+        if (uvdata.result.uv){
           // Number formatting
-          if (uvdata.value > 9.99) {
-            chrome.browserAction.setBadgeText({ text: (uvdata.value).toFixed(1) + "" });
+          if (uvdata.result.uv > 9.99) {
+            chrome.browserAction.setBadgeText({ text: (uvdata.result.uv).toFixed(1) + "" });
           } else {
-            chrome.browserAction.setBadgeText({ text: uvdata.value + "" });
+            chrome.browserAction.setBadgeText({ text: (uvdata.result.uv).toFixed(2) + "" });
           }
           // Colors for badge depending on value
-          if (uvdata.value < 3.0) {
+          if (uvdata.result.uv < 3.0) {
             chrome.browserAction.setBadgeBackgroundColor({color: '#33b841'});
           }
-          else if (uvdata.value < 6.0) {
+          else if (uvdata.result.uv < 6.0) {
             chrome.browserAction.setBadgeBackgroundColor({color: '#fec54b'});
           }
-          else if (uvdata.value < 8.0) {
+          else if (uvdata.result.uv < 8.0) {
             chrome.browserAction.setBadgeBackgroundColor({color: '#ff7243'});
           }
-          else if (uvdata.value < 11.0) {
+          else if (uvdata.result.uv < 11.0) {
             chrome.browserAction.setBadgeBackgroundColor({color: '#fd0122'});
           }
           else {
@@ -50,6 +53,7 @@ function checkUV() {
         chrome.browserAction.setBadgeText({ text: "???"});
       }
     };
+    xhr.setRequestHeader('x-access-token', appid);
     xhr.send();
     }
   else {
@@ -88,8 +92,8 @@ function loc_error() {
 chrome.browserAction.setBadgeBackgroundColor({color: '#535860'});
 getLocation();
 
-// Check UV again every 20 minutes using
-setInterval(checkUV, 1200000);
+// Check UV again every hour using
+setInterval(checkUV, 3600000);
 
 // Check Location every 2 hours
 setInterval(getLocation, 7200000);
