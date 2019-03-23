@@ -1,0 +1,30 @@
+.uv_index_table {
+  display: block;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 115%;
+  overflow: auto;
+  width: auto;
+  }
+  td {
+    color: white;
+    font-weight: normal;
+    padding: 20px 30px;
+    text-align: center;
+  }
+  #c1 {
+    background-color: rgb(20, 196, 105);
+  }
+  #c2 {
+    background-color: rgb(20, 20, 105);
+  }
+  #c3 {
+    background-color: rgb(20, 196, 20);
+  }
+  #c4 {
+    background-color: rgb(20, 0, 20);
+  }
+  #c5 {
+    background-color: rgb(100, 10, 300);
+  }
+}
