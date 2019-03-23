@@ -10,7 +10,7 @@ var locationCords = {};
 var appid = 'f487c19c4186c690795162423ba28f10';
 var user_lng = -1;
 var user_lat = -1;
-var url = ""
+var url = "";
 
 function checkUV() {
   // Check if Lat and Long have been set by getLocation()
@@ -18,7 +18,7 @@ function checkUV() {
 
     var url = ('https://api.openuv.io/api/v1/uv?lat=' + user_lat + '&lng=' + user_lng);;
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
+
     xhr.onreadystatechange = function() {
 
       if (xhr.readyState == 4) {
@@ -54,8 +54,9 @@ function checkUV() {
       }
     };
     xhr.setRequestHeader('x-access-token', appid);
+    xhr.open("GET", url, true);
     xhr.send();
-    }
+  }
   else {
     // Loading 'icon'
     chrome.browserAction.setBadgeText({ text: "~" });

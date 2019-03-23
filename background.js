@@ -13,7 +13,7 @@ function checkUV() {
   // Check if Lat and Long have been set by getLocation()
   if (user_lat != -1 && user_lng != -1) {
 
-    var url = ("http://api.openweathermap.org/data/2.5/uvi?appid="+appid + "&lat=" + user_lat + "&lon=" + user_lng + "");;
+    var url = ("http://api.openweathermap.org/data/2.5/uvi?appid=" +appid + "&lat=" + user_lat + "&lon=" + user_lng + "");;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.onreadystatechange = function() {
