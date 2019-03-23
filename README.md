@@ -7,7 +7,19 @@
 # UV Helper
 A Chrome extension that displays current UV Index.
 
+<p align="center">
+  <img src ="https://raw.githubusercontent.com/axellarsstenson/uv-helper/master/images/useDisplay1.png">
+</p>
+
+<p align="center">
+  <img src ="https://raw.githubusercontent.com/axellarsstenson/uv-helper/master/images/useDisplay2.png">
+</p>
+
+
 This extension is a work in progress. It currently works, but could us some UI improvements. Next version I would also like to include a schedule of the UV Index over the course of the day.
+
+
+
 
 It works by using the UV Index API provided by [the EPA](https://www.epa.gov/enviro/web-services).
 
