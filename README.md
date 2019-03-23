@@ -7,7 +7,7 @@ It works by using the UV Index API provided by [Open UV](https://www.openuv.io/)
 
 ## Installation
 
-Gloom can be installed through the Chrome extension manager by searching for "UV Buddy"
+UV Buddy can be installed through the Chrome extension manager by searching for "UV Buddy"
 
 ## Credit
 
