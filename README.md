@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src ="https://raw.githubusercontent.com/axellarsstenson/uv-helper/images/UVBannerMed.png">
+  <img src ="https://raw.githubusercontent.com/axellarsstenson/uv-helper/master/images/UVBannerMed.png">
 </p>
 
 
