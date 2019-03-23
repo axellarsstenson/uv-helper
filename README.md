@@ -1,9 +1,15 @@
+
+<p align="center">
+  <img src ="https://raw.githubusercontent.com/axellarsstenson/uv-helper/images/UVBannerMed.png">
+</p>
+
+
 # UV Helper
-A Chrome extension that displays current UV index.
+A Chrome extension that displays current UV Index.
 
-This extension is a work in progress. It currently works, but needs UI fixes, and icon changes.
+This extension is a work in progress. It currently works, but could us some UI improvements. Next version I would also like to include a schedule of the UV Index over the course of the day.
 
-It works by using the UV Index API provided by [Open UV](https://www.openuv.io/).
+It works by using the UV Index API provided by [the EPA](https://www.epa.gov/enviro/web-services).
 
 ## Installation
 
@@ -15,4 +21,4 @@ UV Helper is coded, optimized, and maintained by Axel Stenson.
 
 ## License
 
-Licensed under [MIT License](https://github.com/axellarsstenson/karma-kounter/blob/master/LICENSE.md) and open source.
+Licensed under [MIT License](https://github.com/axellarsstenson/uv-helper/blob/master/LICENSE.md) and open source.
