@@ -105,5 +105,5 @@ chrome.browserAction.setBadgeText({ text: "~" });
 if_new_day_load_info();
 get_location();
 
-setInterval(if_new_day_load_info, 3600000);
+setInterval(if_new_day_load_info, 600000);
 setInterval(get_location, 7200000);
