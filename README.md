@@ -16,12 +16,13 @@ A Chrome extension that displays current UV Index.
 </p>
 
 
-This extension is a work in progress. It currently works, but could us some UI improvements. Next version I would also like to include a schedule of the UV Index over the course of the day.
+This extension is a work in progress. It currently works, but could us some UI improvements. 
+Future updates:
+	* Include a forecast of the UV Index over the course of the day.
+	* Paginate the popup to include the current, forecasted, and legend.
+	* Make new icons and banners (rebrand).
 
-
-
-
-It works by using the UV Index API provided by [the EPA](https://www.epa.gov/enviro/web-services).
+This extension works by using the UV Index API provided by [the EPA](https://www.epa.gov/enviro/web-services).
 
 ## Installation
 
