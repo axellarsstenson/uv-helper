@@ -21,6 +21,7 @@ Future updates:
 	* Include a forecast of the UV Index over the course of the day.
 	* Paginate the popup to include the current, forecasted, and legend.
 	* Make new icons and banners (rebrand).
+	* Add the ability to set your own location.
 
 This extension works by using the UV Index API provided by [the EPA](https://www.epa.gov/enviro/web-services).
 
