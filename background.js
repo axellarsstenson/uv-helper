@@ -36,10 +36,20 @@ function if_new_day_load_info(){
   }
 } // end if_new_day_load_info()
 
-function set_updated_badge_text(){
+function set_updated_badge_text(){  
   var curr_Date = new Date();
   var hour = curr_Date.getHours();
-  var uv_value = full_days_log[hour];
+  var next_hour = (hour + 1) % 24;
+  var minutes = (curr_Date.getMinutes() + 1) / 60;
+  
+  // Get two values for this hour and the coming hour.
+  var uv_value_this = full_days_log[hour];
+  var uv_value_next = full_days_log[next_hour];
+  
+  // Calculate the likely UV Index by weighting the two values by minutes into the hour.
+  var uv_value_long = (uv_value_this * minutes) + (uv_value_next * (1 - minutes));
+  var uv_value = +uv_value_long.toFixed(1);
+
   chrome.browserAction.setBadgeText({text: (uv_value + "")});
   set_updated_badge_color(uv_value);
 } // end set_updated_badge_text()
