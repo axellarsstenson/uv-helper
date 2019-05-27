@@ -18,6 +18,7 @@ A Chrome extension that displays current UV Index.
 
 This extension is a work in progress. It currently works, but could us some UI improvements. 
 Future updates:
+
 	* Include a forecast of the UV Index over the course of the day.
 	* Paginate the popup to include the current, forecasted, and legend.
 	* Make new icons and banners (rebrand).
