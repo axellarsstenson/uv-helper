@@ -1,4 +1,16 @@
 
+.zip_form {
+  display: block;
+  font-family: sans-serif;
+  }
+  form {
+    font-weight: normal;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 3px;
+  }
+
 .uv_index_table {
   display: block;
   font-family: sans-serif;
@@ -8,7 +20,7 @@
   width: auto;
   }
   td {
-    color: white;
+    color: rgb(254, 255, 219);
     font-weight: normal;
     padding: 20px 30px;
     text-align: center;

@@ -7,7 +7,6 @@
 
 var url = "";
 var user_zip = 55406;
-var last_date = [0,0,1900];
 var full_days_log = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 function get_daily_uv_info(){
@@ -27,14 +26,10 @@ function get_daily_uv_info(){
   xhr.send();
 } // end get_daily_uv_info()
 
-function if_new_day_load_info(){
-  if(is_new_day() == true){
-    get_daily_uv_info();
-  }
-  else{
+function reload_info(){
+  	get_daily_uv_info();
     set_updated_badge_text();
-  }
-} // end if_new_day_load_info()
+}
 
 function set_updated_badge_text(){  
   var curr_Date = new Date();
@@ -72,27 +67,6 @@ function set_updated_badge_color(uv_value){
   }
 } // end set_updated_badge_color()
 
-function is_new_day() {
-  var dateObj = new Date();
-  var current_date =
-    [dateObj.getDate(), dateObj.getMonth(), dateObj.getFullYear()];
-  if(last_date[2] == current_date [2]){
-    if (last_date[1] == current_date [1]) {
-      if (last_date[0] == current_date [0]) {
-        return false;
-      }
-    }
-  }
-  else {
-    set_date();
-    return true;
-  }
-} // end is_new_day()
-
-function set_date() {
-  var dateObj = new Date();
-  last_date = [dateObj.getDate(), dateObj.getMonth(), dateObj.getFullYear()];
-} // end set_date()
 
 function get_location() {
   if ("geolocation" in navigator) {
@@ -103,6 +77,7 @@ function get_location() {
 function loc_success(position) {
   let zip = position.coords.postalCode;
   user_zip = zip;
+  chrome.browserAction.setBadgeText({text: (zip + "")});
 } // end loc_success()
 
 function loc_error() {
@@ -110,10 +85,11 @@ function loc_error() {
 } // end loc_error()
 
 
+get_location();
 chrome.browserAction.setBadgeBackgroundColor({color: '#535860'});
 chrome.browserAction.setBadgeText({ text: "~" });
-if_new_day_load_info();
-get_location();
+reload_info();
 
-setInterval(if_new_day_load_info, 600000);
+setInterval(set_updated_badge_text, 600000);
+setInterval(reload_info, 7200000);
 setInterval(get_location, 7200000);

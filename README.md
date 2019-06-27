@@ -5,6 +5,12 @@
 
 
 # UV Helper
+
+
+Note: A change was made to the EPA UV Index API and this extension currently isn't working.
+It will always give the UV Index of the city of Minneapolis. I am working on a fix for this.
+
+
 A Chrome extension that displays current UV Index.
 
 <p align="center">
@@ -16,7 +22,7 @@ A Chrome extension that displays current UV Index.
 </p>
 
 
-This extension is a work in progress. It currently works, but could us some UI improvements. 
+This extension is a work in progress. It currently works, but could us some UI improvements.
 Future updates:
 
 	* Include a forecast of the UV Index over the course of the day.
